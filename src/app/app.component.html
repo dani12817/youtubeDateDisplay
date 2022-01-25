@@ -1,0 +1,22 @@
+<div class="body">
+  <div class="content" role="main">
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de 'Schedule'</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="dateContent">
+      <button mat-button color="primary" (click)="modifyDate(-1)">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+      <span id="dateString">{{date.value | date:'d MMM YYYY'}}</span>
+
+      <button mat-button color="accent" (click)="modifyDate(1)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
