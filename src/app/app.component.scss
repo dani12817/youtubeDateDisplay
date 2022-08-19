@@ -7,8 +7,22 @@
         width: 100%;
     }
 
+    .dateContent, .nameContent {
+        margin: 0 auto;
+    }
+
     .dateContent {
         width: 50%;
-        margin: 0 auto;
+    }
+
+    .nameContent {
+        display: flex;
+        place-content: center;
+        flex-direction: row;
+        align-items: center;
+
+        #nameString {
+            min-width: calc(100% - 128px);
+        }
     }
 }

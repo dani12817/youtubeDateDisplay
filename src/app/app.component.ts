@@ -12,7 +12,9 @@ import * as moment from 'moment';
 export class AppComponent {
   title = 'youtubeDateDisplay';
   date: FormControl = new FormControl(new Date());
-  sheduleDate: Date = new Date();
+  scheduleDate: Date = new Date();
+  videoName: String;
+  videoPart: number = 0;
 
   constructor(private clipboard: Clipboard) {}
 
@@ -31,5 +33,11 @@ export class AppComponent {
       console.log("copy", copy);
       this.clipboard.copy(copy);
     });
+  }
+
+  modifyCounter(counter: number) {
+    this.videoPart = this.videoPart + counter;
+    console.log("videoPart", this.videoPart);
+    this.clipboard.copy(`${this.videoName} ${this.videoPart}`);
   }
 }

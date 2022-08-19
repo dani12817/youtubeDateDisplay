@@ -1,5 +1,5 @@
 <div class="body">
-  <div class="content" role="main">
+  <div class="content date-field">
     <mat-form-field appearance="fill">
       <mat-label>Fecha de 'Schedule'</mat-label>
       <input matInput [matDatepicker]="picker" [formControl]="date">
@@ -18,5 +18,26 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
+  </div>
+
+  <div class="content name-field">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Video</mat-label>
+      <input matInput [(ngModel)]="videoName">
+    </mat-form-field>
+
+    <div class="nameContent">
+      <button mat-button color="primary" (click)="modifyCounter(-1)">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+      <div id="nameString">{{videoName}} {{videoPart}}</div>
+
+      <button mat-button color="accent" (click)="modifyCounter(1)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <button mat-button color="primary" (click)="videoPart = 0">Reset</button>
   </div>
 </div>
