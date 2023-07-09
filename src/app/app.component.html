@@ -39,5 +39,28 @@
     </div>
 
     <button mat-button color="primary" (click)="videoPart = 0">Reset</button>
+
+    <hr class="mb-3" />
+
+    <div class="replaceNameContent">
+      <mat-form-field appearance="fill">
+        <mat-label>Video name</mat-label>
+        <input matInput [(ngModel)]="videoNameReplace">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>To replace text</mat-label>
+        <input matInput [(ngModel)]="toReplaceText">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Result replace text</mat-label>
+        <input matInput [(ngModel)]="resultReplaceText">
+      </mat-form-field>
+      
+     <button mat-button color="primary" (click)="replaceNameText()">Replace</button>
+
+      <div id="textReplaced">{{textReplaced}}</div>
+    </div>
   </div>
 </div>

@@ -13,8 +13,13 @@ export class AppComponent {
   title = 'youtubeDateDisplay';
   date: FormControl = new FormControl(new Date());
   scheduleDate: Date = new Date();
-  videoName: String;
+  videoName: string;
   videoPart: number = 0;
+
+  videoNameReplace: string;
+  toReplaceText: string;
+  resultReplaceText: string;
+  textReplaced: string;
 
   constructor(private clipboard: Clipboard) {}
 
@@ -39,5 +44,10 @@ export class AppComponent {
     this.videoPart = this.videoPart + counter;
     console.log("videoPart", this.videoPart);
     this.clipboard.copy(`${this.videoName} ${this.videoPart}`);
+  }
+
+  replaceNameText() {
+    this.textReplaced = this.videoNameReplace.replace(this.toReplaceText, this.resultReplaceText);
+    this.clipboard.copy(`${this.textReplaced}`);
   }
 }
