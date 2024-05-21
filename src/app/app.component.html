@@ -40,7 +40,7 @@
 
     <button mat-button color="primary" (click)="videoPart = 0">Reset</button>
 
-    <hr class="mb-3" />
+    <mat-divider class="mb-3"></mat-divider>
 
     <div class="replaceNameContent">
       <mat-form-field appearance="fill">
@@ -62,5 +62,47 @@
 
       <div id="textReplaced">{{textReplaced}}</div>
     </div>
+
+    <mat-divider class="my-3"></mat-divider>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de 'Schedule' Inicial</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="dateToAdd">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="flex-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Days to add</mat-label>
+        <input matInput [(ngModel)]="daysToAdd" type="number">
+      </mat-form-field>
+
+      <button mat-button color="accent" (click)="addDaysToDate()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="nameContent">
+      <span id="dateToAdd">{{dateToAddResult | date:'d MMM YYYY'}}</span>
+    </div>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <div class="imgNameContent flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label>Img name (* will be replace by number)</mat-label>
+        <input matInput [(ngModel)]="nameImg">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Img number</mat-label>
+        <input matInput [(ngModel)]="numberImg">
+      </mat-form-field>
+      
+      <button mat-button color="primary" (click)="buildImgName()">Replace</button>
+
+      <div id="imgResult">{{imgResult}}</div>
+  </div>
   </div>
 </div>
