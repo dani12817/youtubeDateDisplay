@@ -25,6 +25,8 @@ export class AppComponent {
   daysToAdd: number;
   dateToAddResult: Date = new Date();
 
+  hour: string;
+
   nameImg: string;
   numberImg: string;
   imgResult: string;
@@ -48,19 +50,19 @@ export class AppComponent {
       let copy: string = document.getElementById(id)?.innerHTML;
       copy = copy.replace("Sep", "Sept");
       console.log("copy", copy);
-      this.clipboard.copy(copy);
+      this.copyToClipboard(copy);
     });
   }
 
   modifyCounter(counter: number) {
     this.videoPart = this.videoPart + counter;
     console.log("videoPart", this.videoPart);
-    this.clipboard.copy(`${this.videoName} ${this.videoPart}`);
+    this.copyToClipboard(`${this.videoName} ${this.videoPart}`);
   }
 
   replaceNameText() {
     this.textReplaced = this.videoNameReplace.replace(this.toReplaceText, this.resultReplaceText);
-    this.clipboard.copy(`${this.textReplaced}`);
+    this.copyToClipboard(`${this.textReplaced}`);
   }
 
   addDaysToDate() {
@@ -75,6 +77,10 @@ export class AppComponent {
 
   buildImgName() {
     this.imgResult = this.nameImg.replace("*", this.numberImg);
-    this.clipboard.copy(`${this.imgResult}`);
+    this.copyToClipboard(`${this.imgResult}`);
+  }
+
+  copyToClipboard(toCopy: string) {
+    this.clipboard.copy(`${toCopy}`);
   }
 }

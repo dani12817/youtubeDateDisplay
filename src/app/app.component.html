@@ -87,6 +87,17 @@
       <span id="dateToAdd">{{dateToAddResult | date:'d MMM YYYY'}}</span>
     </div>
 
+    <div class="flex-row mt-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Hour to add</mat-label>
+        <input matInput [(ngModel)]="hour">
+      </mat-form-field>
+
+      <button mat-button color="accent" (click)="copyToClipboard(hour)">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </div>
+
     <mat-divider class="my-3"></mat-divider>
 
     <div class="imgNameContent flex-column">
@@ -102,7 +113,7 @@
       
       <button mat-button color="primary" (click)="buildImgName()">Replace</button>
 
-      <div id="imgResult">{{imgResult}}</div>
+      <div id="imgResult" class="mt-3">{{imgResult}}</div>
   </div>
   </div>
 </div>
